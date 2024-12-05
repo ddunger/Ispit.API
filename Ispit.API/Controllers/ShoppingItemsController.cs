@@ -1,4 +1,5 @@
-﻿using Ispit.API.Entities;
+﻿using Ispit.API.Data;
+using Ispit.API.Entities;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
@@ -6,25 +7,25 @@ namespace Ispit.API.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class ItemsController : ControllerBase
+    public class ShoppingItemsController : ControllerBase
     {
         private readonly AppDbContext _context;
 
-        public ItemsController(AppDbContext context)
+        public ShoppingItemsController(AppDbContext context)
         {
             _context = context;
         }
 
         // GET: api/Items
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<Item>>> GetShoppingItem()
+        public async Task<ActionResult<IEnumerable<ShoppingItem>>> GetShoppingItem()
         {
             return await _context.ShoppingItem.ToListAsync();
         }
 
         // GET: api/Items/5
         [HttpGet("{id}")]
-        public async Task<ActionResult<Item>> GetItem(int id)
+        public async Task<ActionResult<ShoppingItem>> GetItem(int id)
         {
             var item = await _context.ShoppingItem.FindAsync(id);
 
@@ -39,7 +40,7 @@ namespace Ispit.API.Controllers
         // PUT: api/Items/5
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPut("{id}")]
-        public async Task<IActionResult> PutItem(int id, Item item)
+        public async Task<IActionResult> PutItem(int id, ShoppingItem item)
         {
             if (id != item.Id)
             {
@@ -70,7 +71,7 @@ namespace Ispit.API.Controllers
         // POST: api/Items
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPost]
-        public async Task<ActionResult<Item>> PostItem(Item item)
+        public async Task<ActionResult<ShoppingItem>> PostItem(ShoppingItem item)
         {
             _context.ShoppingItem.Add(item);
             await _context.SaveChangesAsync();

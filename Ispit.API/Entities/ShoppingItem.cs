@@ -3,7 +3,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Ispit.API.Entities
 {
-    public class Item
+    public class ShoppingItem
     {
         [Key]
         public int Id { get; set; }

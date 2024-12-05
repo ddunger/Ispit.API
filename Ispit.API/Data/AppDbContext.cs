@@ -2,7 +2,7 @@
 using Microsoft.EntityFrameworkCore;
 using System.Collections.Generic;
 
-namespace Ispit.API
+namespace Ispit.API.Data
 {
     public class AppDbContext : DbContext
     {
@@ -10,7 +10,7 @@ namespace Ispit.API
         {
         }
 
-        public DbSet<Item> ShoppingItem { get; set; }
+        public DbSet<ShoppingItem> ShoppingItem { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
