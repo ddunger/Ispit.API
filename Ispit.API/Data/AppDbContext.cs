@@ -1,6 +1,5 @@
 ﻿using Ispit.API.Entities;
 using Microsoft.EntityFrameworkCore;
-using System.Collections.Generic;
 
 namespace Ispit.API.Data
 {
@@ -12,11 +11,6 @@ namespace Ispit.API.Data
 
         public DbSet<ShoppingItem> ShoppingItem { get; set; }
 
-        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-        {
-            optionsBuilder.UseSqlServer("Server=(localdb)\\mssqllocaldb;Database=ShoppingDb;Integrated Security = True;TrustServerCertificate = True;");
-
-            base.OnConfiguring(optionsBuilder);
-        }
+      
     }
 }
